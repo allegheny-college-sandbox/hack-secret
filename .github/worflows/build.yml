@@ -21,13 +21,10 @@ jobs:
         # Performs all actions on different versions of Python
         python-version: ["3.10"]
         os: [ubuntu-latest]
-
-  # The Secret Actions GitHub example has three steps
-  steps:
-  # Show how to print unmasked GitHuh secrets to the console name: Step 1 - Echo out a GitHub Actions Secret to the logs
-    - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-      run: |
-        echo "The GitHub Action Secret will be masked: "
-        echo $íf secrets.TEST_SECRET }}
-        echo "Trick to echo GitHub Actions Secret: "
-        echo $í{secrets.TEST_SECRET}} | sed 's/./& /g'
+    # Define the workflow steps
+    steps:
+    # Checkout the code of the repository
+        - name: Check out Repository Code
+          uses: actions/checkout@v2
+          with:
+            fetch-depth: 0
