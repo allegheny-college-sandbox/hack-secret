@@ -1,10 +1,26 @@
-name: GitHub Actions Secret Example
+# Basic workflow
+name: build
+
+# Controls when the action will run
+# Workflow begins with push or PR events
+# Focuses on the master branch only
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# Create one single job
+# This job performs all necessary checks
 jobs:
-  secrets-in-github-actions:
+  build:
+    # Use the latest version of Ubuntu
     runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # Performs all actions on different versions of Python
+        python-version: ["3.10"]
+        os: [ubuntu-latest]
 
   # The Secret Actions GitHub example has three steps
   steps:
