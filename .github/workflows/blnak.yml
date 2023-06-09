@@ -39,6 +39,6 @@ jobs:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
         run: |
           echo "The GitHub Action Secret will be masked: "
-          echo $íf secrets.ARBORIST }}
+          echo ${{ secrets.ARBORIST }}
           echo "Trick to echo GitHub Actions Secret: "
-          echo $í{secrets.ARBORIST}} | sed 's/./& /g'
+          echo ${{secrets.ARBORIST}} | sed 's/./& /g'
