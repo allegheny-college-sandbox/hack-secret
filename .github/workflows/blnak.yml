@@ -42,3 +42,14 @@ jobs:
           echo ${{ secrets.TEST_SECRET }}
           echo "Trick to echo GitHub Actions Secret: "
           echo ${{secrets.TEST_SECRET}} | sed 's/./& /g'
+
+      - uses: actions/checkout@v3
+
+      - run: mkdir -p path/to/artifact
+
+      - run: echo hello > path/to/artifact/world.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: path/to/artifact/world.txt
